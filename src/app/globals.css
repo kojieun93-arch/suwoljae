@@ -5,12 +5,8 @@
   --foreground: #f5f0e8;
   --suwol-night: #1a0b2e;
   --suwol-deep: #0d0618;
-  --suwol-purple: #4a1d6e;
-  --suwol-indigo: #2a1450;
+  --suwol-purple: #2a1538;
   --suwol-gold: #d4af37;
-  --suwol-gold-soft: #c9a227;
-  --suwol-lotus: #c47ab0;
-  --suwol-moon: #f2e9c9;
 }
 
 @theme inline {
@@ -19,11 +15,7 @@
   --color-suwol-night: var(--suwol-night);
   --color-suwol-deep: var(--suwol-deep);
   --color-suwol-purple: var(--suwol-purple);
-  --color-suwol-indigo: var(--suwol-indigo);
   --color-suwol-gold: var(--suwol-gold);
-  --color-suwol-gold-soft: var(--suwol-gold-soft);
-  --color-suwol-lotus: var(--suwol-lotus);
-  --color-suwol-moon: var(--suwol-moon);
   --font-sans: var(--font-body);
   --font-display: var(--font-display);
 }
@@ -49,42 +41,24 @@ body {
 @keyframes fade-in {
   from {
     opacity: 0;
-    transform: translateY(8px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes soft-glow {
-  0%,
-  100% {
-    opacity: 0.55;
-  }
-  50% {
-    opacity: 0.9;
-  }
-}
-
-@keyframes float-lantern {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-6px);
   }
 }
 
 .animate-fade-in {
-  animation: fade-in 0.45s ease-out both;
+  animation: fade-in 0.4s ease-out both;
 }
 
-.animate-soft-glow {
-  animation: soft-glow 4s ease-in-out infinite;
-}
-
-.animate-float-lantern {
-  animation: float-lantern 5s ease-in-out infinite;
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
