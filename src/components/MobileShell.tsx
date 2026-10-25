@@ -3,7 +3,7 @@ type MobileShellProps = {
   className?: string;
 };
 
-/** Phone-sized frame: full-bleed on mobile, centered device chrome on desktop. */
+/** Phone-sized frame: full-bleed on mobile (100dvh), centered chrome on desktop. */
 export function MobileShell({ children, className = "" }: MobileShellProps) {
   return (
     <div className="flex min-h-[100dvh] items-center justify-center bg-[#07040f] p-0 sm:p-6">

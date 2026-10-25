@@ -1,38 +1,22 @@
 type DialogueBarProps = {
   children: React.ReactNode;
   onClick?: () => void;
-  showArrow?: boolean;
   className?: string;
 };
 
+/** Bottom cinematic pill CTA — translucent purple with light border. */
 export function DialogueBar({
   children,
   onClick,
-  showArrow = true,
   className = "",
 }: DialogueBarProps) {
-  const content = (
-    <div className="flex min-w-0 items-start justify-between gap-3">
-      <p className="min-w-0 flex-1 break-keep break-words whitespace-normal">
-        {children}
-      </p>
-      {showArrow && (
-        <span className="mt-0.5 shrink-0 text-white/55" aria-hidden>
-          ›
-        </span>
-      )}
-    </div>
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className={`animate-fade-in w-full max-w-[360px] rounded-full border border-white/35 bg-[#2a1a38]/72 px-6 py-4 text-center text-[16px] font-medium tracking-wide text-[#f7f1e6] shadow-[0_8px_28px_rgba(0,0,0,0.35)] backdrop-blur-md transition active:scale-[0.98] ${className}`}
+    >
+      {children}
+    </button>
   );
-
-  const styles = `animate-fade-in w-full shrink-0 rounded-2xl border border-[#d4af37]/35 bg-[#1a0b2e]/88 px-4 py-3.5 text-left text-[15px] leading-relaxed text-white/95 backdrop-blur-md transition active:scale-[0.99] ${className}`;
-
-  if (onClick) {
-    return (
-      <button type="button" onClick={onClick} className={styles}>
-        {content}
-      </button>
-    );
-  }
-
-  return <div className={styles}>{content}</div>;
 }

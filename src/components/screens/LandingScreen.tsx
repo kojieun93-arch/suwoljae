@@ -26,13 +26,13 @@ export function LandingScreen({ onStart, onSkip }: LandingScreenProps) {
         <button
           type="button"
           onClick={onSkip}
-          className="rounded-full border border-[#d4af37]/55 bg-[#1a0b2e]/55 px-3.5 py-1.5 text-xs text-white/90 backdrop-blur-sm transition active:scale-95"
+          className="rounded-full border border-white/30 bg-[#2a1a38]/55 px-3.5 py-1.5 text-xs text-[#f7f1e6]/90 backdrop-blur-sm transition active:scale-95"
         >
           건너뛰기
         </button>
       </div>
 
-      <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-6 pointer-events-none">
+      <div className="pointer-events-none absolute inset-0 z-10 flex flex-col items-center justify-center px-6">
         <div className="flex flex-col items-center text-center">
           <div
             aria-hidden
@@ -40,15 +40,15 @@ export function LandingScreen({ onStart, onSkip }: LandingScreenProps) {
           >
             ❈
           </div>
-          <div className="rounded-[28px] border border-[#d4af37]/55 bg-[#12081f]/50 px-10 py-7 shadow-[0_0_40px_rgba(26,11,46,0.45)] backdrop-blur-[2px]">
-            <h1 className="font-[family-name:var(--font-display)] text-5xl font-bold tracking-wide text-white drop-shadow-[0_2px_14px_rgba(0,0,0,0.55)]">
+          <div className="rounded-[28px] border border-white/25 bg-[#12081f]/50 px-10 py-7 shadow-[0_0_40px_rgba(26,11,46,0.45)] backdrop-blur-[2px]">
+            <h1 className="font-[family-name:var(--font-display)] text-5xl font-bold tracking-wide text-[#f7f1e6] drop-shadow-[0_2px_14px_rgba(0,0,0,0.55)]">
               수월재
             </h1>
-            <p className="mt-2 font-[family-name:var(--font-display)] text-lg tracking-[0.35em] text-white/90">
+            <p className="mt-2 font-[family-name:var(--font-display)] text-lg tracking-[0.35em] text-[#f7f1e6]/90">
               水月齋
             </p>
           </div>
-          <p className="mt-5 max-w-[260px] break-keep text-sm leading-relaxed text-white/85 drop-shadow-[0_1px_8px_rgba(0,0,0,0.65)]">
+          <p className="mt-5 max-w-[260px] break-keep text-sm leading-relaxed text-[#f7f1e6]/85 drop-shadow-[0_1px_8px_rgba(0,0,0,0.65)]">
             달빛 아래 피어나는 운명의 이야기
           </p>
         </div>
@@ -61,7 +61,7 @@ export function LandingScreen({ onStart, onSkip }: LandingScreenProps) {
             "max(2.75rem, calc(2rem + env(safe-area-inset-bottom, 0px)))",
         }}
       >
-        <PrimaryButton onClick={onStart}>시작하기 →</PrimaryButton>
+        <PrimaryButton onClick={onStart}>시작하기</PrimaryButton>
       </div>
     </section>
   );
