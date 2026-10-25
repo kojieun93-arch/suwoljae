@@ -5,6 +5,7 @@ type SceneImageProps = {
   alt: string;
   priority?: boolean;
   className?: string;
+  style?: React.CSSProperties;
 };
 
 /** Full-bleed mobile scene art. */
@@ -13,6 +14,7 @@ export function SceneImage({
   alt,
   priority = false,
   className = "",
+  style,
 }: SceneImageProps) {
   return (
     <Image
@@ -22,6 +24,7 @@ export function SceneImage({
       priority={priority}
       sizes="(max-width: 430px) 100vw, 430px"
       className={`object-cover object-center ${className}`}
+      style={style}
     />
   );
 }

@@ -7,6 +7,7 @@
   --suwol-deep: #0d0618;
   --suwol-purple: #2a1538;
   --suwol-gold: #d4af37;
+  --suwol-ivory: #f7f1e6;
   --safe-top: env(safe-area-inset-top, 0px);
   --safe-bottom: env(safe-area-inset-bottom, 0px);
   --safe-left: env(safe-area-inset-left, 0px);
@@ -20,6 +21,7 @@
   --color-suwol-deep: var(--suwol-deep);
   --color-suwol-purple: var(--suwol-purple);
   --color-suwol-gold: var(--suwol-gold);
+  --color-suwol-ivory: var(--suwol-ivory);
   --font-sans: var(--font-body);
   --font-display: var(--font-display);
 }
@@ -36,6 +38,7 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-body), "Apple SD Gothic Neo", sans-serif;
+  overflow-x: hidden;
 }
 
 body {
@@ -52,8 +55,73 @@ body {
   }
 }
 
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes soft-glow {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.55;
+  }
+}
+
+@keyframes petal-drift {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.45;
+  }
+  100% {
+    transform: translate3d(18px, 120px, 0) rotate(28deg);
+    opacity: 0;
+  }
+}
+
+@keyframes slow-zoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.06);
+  }
+}
+
 .animate-fade-in {
   animation: fade-in 0.4s ease-out both;
+}
+
+.animate-fade-up {
+  animation: fade-up 0.5s ease-out both;
+}
+
+.animate-soft-glow {
+  animation: soft-glow 5s ease-in-out infinite;
+}
+
+.animate-petal {
+  animation: petal-drift 9s linear infinite;
+}
+
+.animate-slow-zoom {
+  animation: slow-zoom 0.85s ease-in forwards;
+}
+
+.safe-pad-x {
+  padding-left: max(1.25rem, var(--safe-left));
+  padding-right: max(1.25rem, var(--safe-right));
 }
 
 .sr-only {
@@ -68,16 +136,12 @@ body {
   border-width: 0;
 }
 
-.safe-pad-x {
-  padding-left: max(1.25rem, var(--safe-left));
-  padding-right: max(1.25rem, var(--safe-right));
-}
-
-.safe-pad-top {
-  padding-top: max(0.85rem, var(--safe-top));
-}
-
-/* Extra bottom inset so dialogue/buttons clear home indicator + browser chrome */
-.safe-pad-bottom {
-  padding-bottom: max(2.75rem, calc(2rem + var(--safe-bottom)));
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in,
+  .animate-fade-up,
+  .animate-soft-glow,
+  .animate-petal,
+  .animate-slow-zoom {
+    animation: none !important;
+  }
 }
