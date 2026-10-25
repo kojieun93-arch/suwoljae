@@ -4,11 +4,19 @@
 
 ## 현재 범위
 
-- 랜딩 화면 (시작하기 / 건너뛰기)
-- 인트로 대화 장면 2개 (버튼·탭으로 장면 전환)
-- 디자인 목업에서 추출한 풀블리드 장면 이미지 (`public/images/`)
+- 랜딩 화면 (`landing-bg.png` + HTML 로고/버튼)
+- 인트로 대화 장면 2개 (`suryeon-intro-1.png`, `suryeon-intro-2.png` + HTML 말풍선/버튼)
+- 버튼·탭으로 장면 전환
 
 사주 계산, AI, DB, 결제, 회원가입은 포함하지 않습니다.
+
+## 이미지
+
+```
+public/images/landing-bg.png
+public/images/suryeon-intro-1.png
+public/images/suryeon-intro-2.png
+```
 
 ## 실행
 

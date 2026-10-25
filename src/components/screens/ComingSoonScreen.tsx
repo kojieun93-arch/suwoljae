@@ -9,7 +9,7 @@ export function ComingSoonScreen({ onRestart }: ComingSoonScreenProps) {
   return (
     <section className="relative flex h-full w-full animate-fade-in flex-col items-center justify-center overflow-hidden">
       <SceneImage
-        src="/images/landing.jpg"
+        src="/images/landing-bg.png"
         alt=""
         className="scale-110 blur-[2px]"
       />
