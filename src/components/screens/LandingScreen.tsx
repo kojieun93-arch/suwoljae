@@ -48,7 +48,9 @@ export function LandingScreen({ onStart, onSkip }: LandingScreenProps) {
     };
   }, []);
 
-  const handleStart = () => {
+  const handleStart = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    e.preventDefault();
     if (phase === "leaving") return;
     const reduced =
       typeof window !== "undefined" &&
@@ -57,8 +59,9 @@ export function LandingScreen({ onStart, onSkip }: LandingScreenProps) {
       onStart();
       return;
     }
+    // Soft fade only — no zoom / flash. Intro owns the 800ms image crossfade.
     setPhase("leaving");
-    window.setTimeout(() => onStart(), 780);
+    window.setTimeout(() => onStart(), 320);
   };
 
   return (
@@ -66,7 +69,7 @@ export function LandingScreen({ onStart, onSkip }: LandingScreenProps) {
       <div
         className={`absolute inset-0 transition-opacity duration-700 ease-out ${
           bgReady ? "opacity-100" : "opacity-0"
-        } ${phase === "leaving" ? "animate-slow-zoom" : ""}`}
+        }`}
       >
         <SceneImage
           src="/images/landing-bg.png"
@@ -97,8 +100,8 @@ export function LandingScreen({ onStart, onSkip }: LandingScreenProps) {
 
       <div
         aria-hidden
-        className={`pointer-events-none absolute inset-0 z-30 bg-[#12081f] transition-opacity duration-700 ${
-          phase === "leaving" ? "opacity-100" : "opacity-0"
+        className={`pointer-events-none absolute inset-0 z-30 bg-[#0d0618] transition-opacity duration-300 ${
+          phase === "leaving" ? "opacity-70" : "opacity-0"
         }`}
       />
 
